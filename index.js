@@ -91,20 +91,62 @@
 // }
 
 // Ex #3:
+// var studentsList = [];
+
+// function Person(name, adress, studentId, profile) {
+//     this.name = name;               
+//     this.adress = adress;
+//     this.studentId = studentId;
+//     this.profile = profile;
+//     this.displayInfo = function() {
+//         console.log(this.name + this.adress + this.studentId);
+//     }
+
+//     studentsList.push(this);
+// }
+
+
+// var student1 = new Person ("Jan", "Gdańsk", "111", "biol");
+// var student2 = new Person ("John", "NY", "222", "chem");
+// var student3 = new Person ("Ewa", "Gdynia", "333", "matem" );
+
+// console.log(studentsList)
+
+// studentsList.map((element) => element.displayInfo());
+
 var studentsList = [];
 
-function Pearson(name, adress, studentId, profile) {
-    this.name = name;
+function Person(name, adress, studentId, profile) {
+    this.name = name;               
     this.adress = adress;
     this.studentId = studentId;
     this.profile = profile;
+    studentsList.push(this)
+       }
 
-    studentsList.push(this);
-}
+    Person.prototype.displayInfo = function() {
+        console.log(this.name + " " + this.adress + " " + this.studentId + " " + this.profile);
+    }
 
+    function Student(name, adress, studentId, profile) {
+        Person.call(this, name, adress, studentId, profile);
+        this.role = "student";
+    }
+    
+    function Teacher(name, adress, studentId, profile) {
+        Person.call(this, name, adress, studentId, profile);
+        this.role = "teacher";
+    }
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
 
-var student1 = new Pearson ("Jan", "Gdańsk", "111", "biologia");
-var student2 = new Pearson ("John", "NY", "222", "chem");
-var student3 = new Pearson ("Ewa", "Gdynia", "333", "matem" );
+Teacher.prototype = Object.create(Person.prototype);
+Teacher.prototype.constructor = Teacher;
+    
+var student1 = new Student ("Jan", "Gdańsk", "111", "biol");
+var student2 = new Teacher ("John", "NY", "222", "chem");
+var student3 = new Student ("Ewa", "Gdynia", "333", "matem" );
 
 console.log(studentsList)
+
+studentsList.map((element) => element.displayInfo());
