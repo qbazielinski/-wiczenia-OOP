@@ -114,6 +114,8 @@
 
 // studentsList.map((element) => element.displayInfo());
 
+// Ex #4
+
 var studentsList = [];
 
 function Person(name, adress, studentId, profile) {
@@ -150,3 +152,11 @@ var student3 = new Student ("Ewa", "Gdynia", "333", "matem" );
 console.log(studentsList)
 
 studentsList.map((element) => element.displayInfo());
+
+// function renderList(element) {
+//     element.map((el) => {
+//         console.log(el.name + el.adress);
+//     })
+// }
+
+// renderList(studentsList);  *// gdy chcemy wyświetlić z listy tylko niektóre parametry
