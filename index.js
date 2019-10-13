@@ -213,7 +213,8 @@ class Render {
            const table = document.querySelector(`.${goal}`);
            let htmlValue = "";
            list.map((element)=>{
-            htmlValue += `<div>Imię: ${element.name},</div><div>Miasto: ${element.address},</div><div>Wiek: ${element.age},</div>`; 
+            // htmlValue += `<div>Imię: ${element.name},</div><div>Miasto: ${element.address},</div><div>Wiek: ${element.age},</div>`;
+            htmlValue += `<div><span>Imię: ${element.name}, </span><span>Miasto: ${element.address}, </span><span>Wiek: ${element.age}, </span></div>`; 
             });
             table.innerHTML = htmlValue;
         }
