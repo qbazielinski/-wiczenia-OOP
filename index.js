@@ -160,3 +160,49 @@
 // }
 
 // renderList(studentsList);  *// gdy chcemy wyświetlić z listy tylko niektóre parametry
+
+
+// Ex #5
+
+class People {
+    constructor(name, address, idNumber, age) {
+        this.name = name;
+        this.address = address;
+        this.idNumber = idNumber;
+        this.age = age;
+
+    }
+    displayFullInfo = function() {
+        console.log(this.name);
+    }
+    changeId(newId) {
+        this.idNumber = newId}
+}
+
+class Student extends People {
+    constructor(name, address, idNumber, age) {
+        super(name, address, idNumber, age);
+        this.profile = 'student';
+    }
+    
+}
+class Teacher extends People {
+    constructor(name, address, idNumber, age) {
+        super(name, address, idNumber, age);
+        this.profile = 'Teacher';
+    }
+}
+
+const student1 = new Student ("Jan", "Gdańsk", "111", "20");
+const student2 = new Student ("John", "NY", "222", "21");
+const student3 = new Student ("Ewa", "Gdynia", "333", "22" );
+const studentList = [student1, student2, student3];
+
+const teacher1 = new Teacher ("Tomek", "Gdańsk", "111", "40");
+const teacher2 = new Teacher ("Adam", "NY", "222", "51");
+const teacher3 = new Teacher ("Ola", "Gdynia", "333", "62" );
+const teacherList = [teacher1, teacher2, teacher3];
+
+console.log(studentList, teacherList);
+
+
