@@ -192,6 +192,7 @@ class Teacher extends People {
         this.profile = 'Teacher';
     }
 }
+// 
 
 const student1 = new Student ("Jan", "Gdańsk", "111", "20");
 const student2 = new Student ("John", "NY", "222", "21");
@@ -204,5 +205,25 @@ const teacher3 = new Teacher ("Ola", "Gdynia", "333", "62" );
 const teacherList = [teacher1, teacher2, teacher3];
 
 console.log(studentList, teacherList);
+
+// Ex #6
+
+class Render {
+        static renderList(list, goal) {
+           const table = document.querySelector(`.${goal}`);
+           let htmlValue = "";
+           list.map((element)=>{
+            htmlValue += `<div>Imię: ${element.name},</div><div>Miasto: ${element.address},</div><div>Wiek: ${element.age},</div>`; 
+            });
+            table.innerHTML = htmlValue;
+        }
+    }
+Render.renderList(studentList, "students");
+
+Render.renderList(teacherList, "teachers");
+
+
+
+
 
 
